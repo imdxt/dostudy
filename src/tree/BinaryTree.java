@@ -1,11 +1,16 @@
 package tree;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicStampedReference;
+
 public class BinaryTree {
     public static void main(String[] args) {
         BinaryTreeDemo binaryTree = new BinaryTreeDemo();
 
         //          1
+        //         / \
         //        2   3
+        //           / \
         //          4   5
 
         TreeNode root = new TreeNode(1,"刘备");
