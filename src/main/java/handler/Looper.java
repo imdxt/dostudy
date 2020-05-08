@@ -3,7 +3,7 @@ package handler;
 public class Looper {
 
     public MessageQueue mQueue;
-    public static ThreadLocal<Looper> sThreadLocal = new ThreadLocal<>();
+    public static ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
     public static Looper myLooper(){
         return sThreadLocal.get();
     }
