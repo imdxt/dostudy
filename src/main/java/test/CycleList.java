@@ -1,6 +1,7 @@
 package test;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -50,6 +51,53 @@ public class CycleList {
 
         return false;
     }
+
+    //=============================START=======================================
+    private static ListNode detectCycel(ListNode head){
+        //存储链表的节点
+        Set<ListNode> nodeSet = new HashSet<>();
+        //记录当前的节点
+        ListNode cur = head;
+        while (cur != null){
+            if(nodeSet.contains(cur)){
+                return cur;
+            }
+            nodeSet.add(cur);
+            //指向下一个节点
+            cur = cur.next;
+        }
+        return null;
+    }
+    //获取相遇节点
+    private static ListNode getIntersect(ListNode head){
+        ListNode tortoise = head;
+        ListNode hare = head;
+        while (hare != null && hare.next != null){
+            tortoise = tortoise.next;
+            hare = hare.next.next;
+            if(hare == tortoise){
+                return tortoise;
+            }
+        }
+        return null;
+    }
+    private static ListNode detectCycel1(ListNode head){
+        ListNode intersect = getIntersect(head);
+        if(intersect == null){
+            return null;
+        }
+        ListNode p1 = head;
+        ListNode p2 = intersect;
+        while (p1 != p2){
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p1;
+    }
+
+    //============================END========================================
+
     //使用快慢指针的方式，如果两个指针相等则，快指针追上了慢指针，出现了环形链表
     private static boolean hasCycel2(ListNode head){
         if(head == null || head.next == null){
