@@ -33,4 +33,9 @@ public class BinarySearchTest {
 
         return -1;
     }
+
+    private static int binary(int[] arr,int data){
+
+        return -1;
+    }
 }
