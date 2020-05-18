@@ -19,8 +19,8 @@ public class SubArraySum {
     public static void main(String[] args){
 
         int[] nums = {3,4,7,2,-3,1,4,2};
-//        System.out.println(" --result ==="+subarraySum(nums,7));
-        System.out.println(" --result ==="+subarraySum1(nums,7));
+        System.out.println(" --result ==="+subarraySum(nums,7));
+//        System.out.println(" --result ==="+subarraySum1(nums,7));
 //        System.out.println(" --result ==="+subarraySum2(nums,7));
     }
 
@@ -38,7 +38,7 @@ public class SubArraySum {
         mp.put(0, 1);
         for (int i = 0; i < nums.length; i++) {
             pre += nums[i];
-            System.out.println(" pre="+pre+"/ "+(pre-k));
+            System.out.println(" pre="+pre+"/ "+(pre-k)+"/ count "+count);
             if (mp.containsKey(pre - k)) {
                 count += mp.get(pre - k);
             }
